@@ -1,0 +1,38 @@
+enable
+conf t
+aaa new-model
+aaa authentication ppp default local
+aaa authorization network default local
+username vpncliente password cisco123
+vpdn enable
+vpdn-group 1
+accept-dialin
+protocol l2tp
+virtual-template 1
+no l2tp tunnel authentication
+exit
+crypto isakmp policy 10
+encr aes 256
+hash sha
+authentication pre-share
+group 14
+exit
+crypto isakmp key PskSecreto123 address 0.0.0.0
+crypto ipsec nat-transparency udp-encapsulation
+crypto ipsec transform-set TS_L2TP esp-aes 256 esp-sha-hmac
+mode transport
+exit
+crypto dynamic-map DYN_MAP_L2TP 10
+set transform-set TS_L2TP
+exit
+crypto map MAPA_ESTATICO 10 ipsec-isakmp dynamic DYN_MAP_L2TP
+ip local pool POOL_VPN 172.16.10.10 172.16.10.50
+interface Virtual-Template1
+ip unnumbered Ethernet0/0
+peer default ip address pool POOL_VPN
+ppp authentication ms-chap-v2
+exit
+interface Ethernet0/0
+crypto map MAPA_ESTATICO
+exit
+end
