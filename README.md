@@ -1,8 +1,8 @@
-# 🔐 Lab 10 — Client-to-Site VPN — L2TP/IPSec (Windows Nativo)
+# 🔐 Lab 9 — Client-to-Site VPN — L2TP/IPSec (Windows Nativo)
 
 **Estudiante:** Enmanuel Feliz Soto | **Matrícula:** 2025-1402  
 **Institución:** Instituto Tecnológico de Las Américas (ITLA)  
-**Curso:** Seguridad en Redes | **Sección:** 5  
+**Curso:** Seguridad en Redes | **Sección:** 5  Lunes
 **Docente:** Jonathan Esteban Rondón Corniel
 
 ---
